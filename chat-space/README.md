@@ -31,42 +31,40 @@ Things you may want to cover:
 |name|string|null: false|
 
 ## Association
-- has_many : message
+- has_many : messages
 - has_many : group_users
-- has_many : group through group_users
+- has_many : group through: :group_users
 
 
 
-## messageテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|strig||
-|text|text|null: false|
-|user_id|integer|foreign_key: true|
-|group_id|integer|foreign_key: true|
+|text|text||
+|user_id|integer|foreign_key: true,null: false|
+|group_id|integer|foreign_key: true,null: false|
 
 ## Association
-- belog_to :users
-- blong_to :group
+- belog_to :user
+- blong_to :groups
 
-## groupテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|---|
-|user_id|integer|foreign_key: true|
-|messsage_id|integer|foreign_key: true|
-
+|group_name|string|null: false|
 ## Association
 - has_many :message
 - has_many :group_users
 - has_many :users through group_users
 
-##　group_usersテーブル
+##　groups_usersテーブル
 |Column|Type|Options|
 |------|----|---|
 |users_id|integer|null: false,foreign_key:true|
 |group_id|integer|null: false,foreign_key:true|
 
-- belog_to :users
+- belog_to :user
 - blong_to :group
 
 
